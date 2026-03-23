@@ -215,7 +215,7 @@ check.datatype <- function(data, datatype, nT = nT, to.datalist = FALSE, raw.to.
 
       # 20251028
       
-      if ( sum(sapply(data, function(y) sum(rowSums(y) > 0)) < 5) > 0 & !empirical) stop("To ensure reliable results, iNEXT.3D requires sufficient data; the number of observed species should be at least five. 
+      if ( sum(sapply(data, function(y) sum(rowSums(y) > 0)) < 3) > 0 & !empirical) stop("To ensure reliable results, iNEXT.3D requires sufficient data; the number of observed species should be at least five. 
 ", call. = FALSE)
       
       data2 = lapply(data, function(i) {
@@ -295,8 +295,8 @@ check.datatype <- function(data, datatype, nT = nT, to.datalist = FALSE, raw.to.
     
     # 20251028
     
-    if ( ((datatype == "abundance" & sum(colSums(data > 0) < 5) > 0 ) |
-         (datatype == "incidence_freq" & sum(colSums(data[-1,,drop=FALSE] > 0) < 5) > 0 )) & !empirical  ) stop("To ensure reliable results, iNEXT.3D requires sufficient data; the number of observed species should be at least five.
+    if ( ((datatype == "abundance" & sum(colSums(data > 0) < 3) > 0 ) |
+         (datatype == "incidence_freq" & sum(colSums(data[-1,,drop=FALSE] > 0) < 3) > 0 )) & !empirical  ) stop("To ensure reliable results, iNEXT.3D requires sufficient data; the number of observed species should be at least five.
 ", call. = FALSE)
     
     if ( (datatype == "abundance" & sum(colSums(data) == 0) > 0) |
